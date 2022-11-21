@@ -10,6 +10,7 @@ namespace Lotto
     {
         public static LottoMaster instance;
 
+        public bool isPlayerWon = false;
 
         private List<int> gameNumbersPool = new List<int>{
         1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
@@ -38,6 +39,10 @@ namespace Lotto
         public bool GameEnded()
         {
             return gameEnded;
+        }
+        public List<int> GetGameNumberPool()
+        {
+            return gameNumbersPool;
         }
         public void ShufflePool(List<int> pool)
         {
@@ -68,16 +73,13 @@ namespace Lotto
             }
             return 0;
         }
-        public int GetGameNumberIndex()
-        {
-            return gameNumberIndex;
-        }
         public void CheckForCardsCleared(Card card1, Card card2)
         {
             card1.CheckForCardCleared();
             card2.CheckForCardCleared();
             if(card1.IsCleared() & card2.IsCleared())
             {
+                isPlayerWon = true;
                 EndGame();
             }
         }

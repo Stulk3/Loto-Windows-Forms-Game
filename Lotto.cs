@@ -27,7 +27,7 @@ namespace Lotto
         //private Card computerCard1 = new Card();
         //private Card computerCard2 = new Card();
 
-        private bool isPlayerWon;
+
         private int numberFromPool;
 
         private int labelRowIndex;
@@ -195,7 +195,7 @@ namespace Lotto
             Console.WriteLine(playerCard2.GetRemainingNumbersList().Count);
 
             Console.WriteLine("Осталось бочек");
-            Console.WriteLine(lottoMaster.GetGameNumberIndex());
+            Console.WriteLine(lottoMaster.GetGameNumberPool().Count);
         }
         public void CrossOutNumber(int x, int y, Label[,] labels)
         {
@@ -203,13 +203,15 @@ namespace Lotto
         }
         public void EndGame()
         {
-            if (isPlayerWon)
+            if (lottoMaster.isPlayerWon)
             {
                 MessageBox.Show("Вы победили!", "Победа", MessageBoxButtons.OK);
+                Application.Exit();
             }
             else
             {
                 MessageBox.Show("Вы проиграли!", "Поражение", MessageBoxButtons.OK);
+                Application.Exit();
             }
         }
         private void NextNumberButton_Click(object sender, EventArgs e)
@@ -226,36 +228,7 @@ namespace Lotto
 
         private void buttonEndGame_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine(playerCard1.GetNumbersArray()[0,1]);
-
-            List<int> cardList1 = playerCard1.GetRemainingNumbersList();
-            List<int> cardList2 = playerCard2.GetRemainingNumbersList();
-
-            int number = 69;
-
-            int[,] card1NumbersArray = playerCard1.GetNumbersArray();
-            int[,] card2NumbersArray = playerCard2.GetNumbersArray();
-            int[] numbersRow1;
-            int[] numbersRow2;
-            int[] numbersRow3;
-
-            numbersRow1 = FillRow(number, card1NumbersArray, 0);
-            numbersRow1 = numbersRow1.Where(val => val != number).ToArray();
-            numbersRow2 = FillRow(number, card1NumbersArray, 1);
-            numbersRow2 = numbersRow2.Where(val => val != number).ToArray();
-            numbersRow3 = FillRow(number, card1NumbersArray, 1);
-            numbersRow3 = numbersRow3.Where(val => val != number).ToArray();
-
-            card1NumbersArray = Algorithms.Combine(numbersRow1, numbersRow2, numbersRow3);
-            test = card1NumbersArray;
-
-            //foreach(int item in cardList1)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.WriteLine(test[0,1]);
-
-            //EndGame();
+            EndGame();
         }
     }
 }

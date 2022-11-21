@@ -40,7 +40,7 @@ namespace Lotto
         }
         public void CheckForCardCleared()
         {
-            if (remainingNumbersCount == 0)
+            if (remainingNumbers.Count == 5)
             {
                 isCleared = true;
             }
