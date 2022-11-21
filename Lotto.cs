@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using Lotto;
 
 namespace Lotto
 {
@@ -17,9 +19,19 @@ namespace Lotto
 
         private LottoMaster lottoMaster = new LottoMaster();
         private PlayerData playerData = new PlayerData();
+
         private Card playerCard1= new Card();
         private Card playerCard2 = new Card();
 
+        public int[,] test = new int[3,9];
+        //private Card computerCard1 = new Card();
+        //private Card computerCard2 = new Card();
+
+        private bool isPlayerWon;
+        private int numberFromPool;
+
+        private int labelRowIndex;
+        private int labelColumnIndex;
         public Lotto()
         {
             InitializeComponent();
@@ -48,19 +60,19 @@ namespace Lotto
         {
             int[,] card1numbers = playerCard1.GetNumbersArray();
 
-            for(int i = 0;i < 8; i++)
+            for(int i = 0; i < 9; i++)
             {
                 if(card1numbers[0, i] != 0)
                 card1Labels[0, i].Text = card1numbers[0, i].ToString();
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (card1numbers[1, i] != 0)
                     card1Labels[1, i].Text = card1numbers[1, i].ToString();
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (card1numbers[2, i] != 0)
                     card1Labels[2, i].Text = card1numbers[2, i].ToString();
@@ -70,47 +82,180 @@ namespace Lotto
         {
             int[,] card2numbers = playerCard2.GetNumbersArray();
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (card2numbers[0, i] != 0)
                     card2Labels[0, i].Text = card2numbers[0, i].ToString();
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (card2numbers[1, i] != 0)
                     card2Labels[1, i].Text = card2numbers[1, i].ToString();
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
                 if (card2numbers[2, i] != 0)
                     card2Labels[2, i].Text = card2numbers[2, i].ToString();
             }
         }
-        private void label1_Click(object sender, EventArgs e)
+        private int[] FillRow(int number,int[,] array, int rowNumber)
+        {
+            int[] outputArray = new int[9];
+            for (int i = 0; i < 9; i++)
+            {
+                outputArray[i] = array[rowNumber, i];                
+            }
+            return outputArray;
+        }
+        public void CheckForNumberFromPool(int number, Card card1, Card card2)
         {
 
+            List<int> cardList1 = card1.GetRemainingNumbersList();
+            List<int> cardList2 = card2.GetRemainingNumbersList();
+
+            int[,] card1NumbersArray = new int[3, 9];
+            int[,] card2NumbersArray = new int[3, 9];
+
+            card1NumbersArray = card1.GetNumbersArray();
+            card2NumbersArray = card2.GetNumbersArray();
+            int[] numbersRow1;
+            int[] numbersRow2;
+            int[] numbersRow3;
+
+            bool isExistInCard1 = cardList1.Contains(number);
+            bool isExistInCard2 = cardList2.Contains(number);
+            if (isExistInCard1)
+            {
+                numbersRow1 = FillRow(number, card1NumbersArray, 0);
+                for (int i = 0; i < 9; i++)
+                {
+                    if(numbersRow1[i] == number)
+                    {
+                        CrossOutNumber(0, i, card1Labels);
+                        playerCard1.remainingNumbers.Remove(number);
+                    }
+                }
+                numbersRow2 = FillRow(number, card1NumbersArray, 1);
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numbersRow2[i] == number)
+                    {
+                        CrossOutNumber(1, i, card1Labels);
+                        playerCard1.remainingNumbers.Remove(number);
+                    }
+                }
+                numbersRow3 = FillRow(number, card1NumbersArray, 1);
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numbersRow3[i] == number)
+                    {
+                        CrossOutNumber(2, i, card1Labels);
+                        playerCard1.remainingNumbers.Remove(number);
+                    }
+                }
+
+               
+                //UpdateCard1UI();
+
+            }
+            if (isExistInCard2)
+            {
+                numbersRow1 = FillRow(number, card2NumbersArray, 0);
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numbersRow1[i] == number)
+                    {
+                        CrossOutNumber(0, i, card2Labels);
+                        playerCard2.remainingNumbers.Remove(number);
+                    }
+                }
+                numbersRow2 = FillRow(number, card2NumbersArray, 1);
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numbersRow2[i] == number)
+                    {
+                        CrossOutNumber(1, i, card2Labels);
+                        playerCard2.remainingNumbers.Remove(number);
+                    }
+                }
+                numbersRow3 = FillRow(number, card2NumbersArray, 1);
+                for (int i = 0; i < 9; i++)
+                {
+                    if (numbersRow3[i] == number)
+                    {
+                        CrossOutNumber(2, i, card2Labels);
+                        playerCard2.remainingNumbers.Remove(number);
+                    }
+                }
+            }
+            Console.WriteLine("Оставшиеся номера");
+            Console.WriteLine(playerCard1.GetRemainingNumbersList().Count);
+            Console.WriteLine(playerCard2.GetRemainingNumbersList().Count);
+
+            Console.WriteLine("Осталось бочек");
+            Console.WriteLine(lottoMaster.GetGameNumberIndex());
+        }
+        public void CrossOutNumber(int x, int y, Label[,] labels)
+        {
+            labels[x, y].Text = "X";
+        }
+        public void EndGame()
+        {
+            if (isPlayerWon)
+            {
+                MessageBox.Show("Вы победили!", "Победа", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Вы проиграли!", "Поражение", MessageBoxButtons.OK);
+            }
+        }
+        private void NextNumberButton_Click(object sender, EventArgs e)
+        {
+            numberFromPool = lottoMaster.GetNumberFromGamePool();
+            CheckForNumberFromPool(numberFromPool, playerCard1, playerCard2);
+            //CheckForNumberFromPool(numberFromPool, computerCard1, computerCard2);
+            lottoMaster.CheckForCardsCleared(playerCard1, playerCard2);
+            if (lottoMaster.GameEnded())
+            {
+                EndGame();
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void buttonEndGame_Click(object sender, EventArgs e)
         {
-            
-        }
+            //Console.WriteLine(playerCard1.GetNumbersArray()[0,1]);
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
+            List<int> cardList1 = playerCard1.GetRemainingNumbersList();
+            List<int> cardList2 = playerCard2.GetRemainingNumbersList();
 
-        }
+            int number = 69;
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
+            int[,] card1NumbersArray = playerCard1.GetNumbersArray();
+            int[,] card2NumbersArray = playerCard2.GetNumbersArray();
+            int[] numbersRow1;
+            int[] numbersRow2;
+            int[] numbersRow3;
 
-        }
+            numbersRow1 = FillRow(number, card1NumbersArray, 0);
+            numbersRow1 = numbersRow1.Where(val => val != number).ToArray();
+            numbersRow2 = FillRow(number, card1NumbersArray, 1);
+            numbersRow2 = numbersRow2.Where(val => val != number).ToArray();
+            numbersRow3 = FillRow(number, card1NumbersArray, 1);
+            numbersRow3 = numbersRow3.Where(val => val != number).ToArray();
 
-        private void label2_Click_1(object sender, EventArgs e)
-        {
+            card1NumbersArray = Algorithms.Combine(numbersRow1, numbersRow2, numbersRow3);
+            test = card1NumbersArray;
 
+            //foreach(int item in cardList1)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine(test[0,1]);
+
+            //EndGame();
         }
     }
 }

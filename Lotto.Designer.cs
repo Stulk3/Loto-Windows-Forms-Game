@@ -89,6 +89,7 @@ namespace Lotto
             this.d12 = new System.Windows.Forms.Label();
             this.d11 = new System.Windows.Forms.Label();
             this.NextNumberButton = new System.Windows.Forms.Button();
+            this.buttonEndGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +103,6 @@ namespace Lotto
             this.label1.Size = new System.Drawing.Size(135, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Осталось номеров:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // remainingNumbersID
             // 
@@ -113,7 +113,6 @@ namespace Lotto
             this.remainingNumbersID.Size = new System.Drawing.Size(13, 17);
             this.remainingNumbersID.TabIndex = 2;
             this.remainingNumbersID.Text = "-";
-            this.remainingNumbersID.Click += new System.EventHandler(this.label2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -166,7 +165,6 @@ namespace Lotto
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(569, 186);
             this.tableLayoutPanel1.TabIndex = 5;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // t39
             // 
@@ -437,7 +435,6 @@ namespace Lotto
             this.t11.Size = new System.Drawing.Size(56, 60);
             this.t11.TabIndex = 7;
             this.t11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.t11.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // tableLayoutPanel2
             // 
@@ -771,12 +768,27 @@ namespace Lotto
             this.NextNumberButton.TabIndex = 7;
             this.NextNumberButton.Text = "Следующая бочка";
             this.NextNumberButton.UseVisualStyleBackColor = true;
+            this.NextNumberButton.Click += new System.EventHandler(this.NextNumberButton_Click);
+            // 
+            // buttonEndGame
+            // 
+            this.buttonEndGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEndGame.AutoEllipsis = true;
+            this.buttonEndGame.Location = new System.Drawing.Point(693, 199);
+            this.buttonEndGame.Name = "buttonEndGame";
+            this.buttonEndGame.Size = new System.Drawing.Size(158, 39);
+            this.buttonEndGame.TabIndex = 8;
+            this.buttonEndGame.Text = "Закончить игру";
+            this.buttonEndGame.UseVisualStyleBackColor = true;
+            this.buttonEndGame.Click += new System.EventHandler(this.buttonEndGame_Click);
             // 
             // Lotto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(957, 450);
+            this.Controls.Add(this.buttonEndGame);
             this.Controls.Add(this.NextNumberButton);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -856,6 +868,7 @@ namespace Lotto
         private System.Windows.Forms.Label d12;
         private System.Windows.Forms.Label d11;
         private System.Windows.Forms.Button NextNumberButton;
+        private System.Windows.Forms.Button buttonEndGame;
     }
 }
 

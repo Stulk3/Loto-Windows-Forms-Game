@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lotto
 {
-    class Card
+    public class Card
     {
         private int[,] numbers;
         private int remainingNumbersCount = 15;
         private bool isCleared = false;
-        private List<int> remainingNumbers = new List<int>();
+        public List<int> remainingNumbers = new List<int>();
 
         public Card() : base()
         {
@@ -21,8 +21,24 @@ namespace Lotto
                 {0,1,0,1,1,0,1,1,0}, 
             };
             FillCardWithNumbers();
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    Console.WriteLine("0" + i + " " + numbers[0, i]);
+            //}
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    Console.WriteLine("1" + i + " " + numbers[1, i]);
+            //}
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    Console.WriteLine("2" + i + " " + numbers[2, i]);
+            //}
         }
-        private void CheckForCardCleared()
+        public bool IsCleared()
+        {
+            return isCleared;
+        }
+        public void CheckForCardCleared()
         {
             if (remainingNumbersCount == 0)
             {
@@ -38,23 +54,27 @@ namespace Lotto
         }
         private void FillRow(int rowNumber)
         {
-            for(int i = 0; i < 8; i++)
+            for(int i = 0; i < 9; i++)
             {
                 if (numbers[rowNumber, i] == 1)
                 {
                     int number = LottoMaster.instance.GetNumberFromCardPool();
-                    numbers[rowNumber, i] = number;
+                    SetNumber(rowNumber, i, number);
                     remainingNumbers.Add(number);
                 }
             }
         }
-        public int GetRemainingNumbers()
+        public List<int> GetRemainingNumbersList()
         {
-            return remainingNumbersCount;
+            return remainingNumbers;
         }
         public int[,] GetNumbersArray()
         {
             return numbers;
+        }
+        public void SetNumbersArray(int[,] array)
+        {
+            numbers = array;
         }
         public void SetNumber(int x, int y, int number)
         {
