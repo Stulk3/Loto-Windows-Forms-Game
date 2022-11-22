@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lotto
+namespace Loto
 {
     public class Card
     {
@@ -40,7 +40,7 @@ namespace Lotto
         }
         public void CheckForCardCleared()
         {
-            if (remainingNumbers.Count == 5)
+            if (remainingNumbers.Count == 0)
             {
                 isCleared = true;
             }

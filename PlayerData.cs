@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lotto
+namespace Loto
 {
     class PlayerData
     {
@@ -22,6 +22,10 @@ namespace Lotto
         public void MarkOutNumber()
         {
             remainingNumbers -= 1;
+        }
+        public int GetRemainingNumbers()
+        {
+            return remainingNumbers;
         }
 
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lotto
+namespace Loto
 {
     static class Game
     {
@@ -16,7 +16,7 @@ namespace Lotto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Lotto());
+            Application.Run(new Begin());
         }
     }
 }

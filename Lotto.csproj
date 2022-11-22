@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Algorithms.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="Begin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Begin.Designer.cs">
+      <DependentUpon>Begin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lotto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="LottoMaster.cs" />
     <Compile Include="PlayerData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Begin.resx">
+      <DependentUpon>Begin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lotto.resx">
       <DependentUpon>Lotto.cs</DependentUpon>
     </EmbeddedResource>

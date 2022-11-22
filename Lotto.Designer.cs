@@ -1,5 +1,5 @@
 ﻿
-namespace Lotto
+namespace Loto
 {
     partial class Lotto
     {
@@ -90,6 +90,9 @@ namespace Lotto
             this.d11 = new System.Windows.Forms.Label();
             this.NextNumberButton = new System.Windows.Forms.Button();
             this.buttonEndGame = new System.Windows.Forms.Button();
+            this.numberFromPoolID = new System.Windows.Forms.Label();
+            this.ComputerRemainingNumbersID = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -98,9 +101,10 @@ namespace Lotto
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(791, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(702, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 17);
+            this.label1.Size = new System.Drawing.Size(186, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Осталось номеров:";
             // 
@@ -108,11 +112,13 @@ namespace Lotto
             // 
             this.remainingNumbersID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.remainingNumbersID.AutoSize = true;
-            this.remainingNumbersID.Location = new System.Drawing.Point(932, 9);
+            this.remainingNumbersID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.remainingNumbersID.Location = new System.Drawing.Point(894, 9);
             this.remainingNumbersID.Name = "remainingNumbersID";
-            this.remainingNumbersID.Size = new System.Drawing.Size(13, 17);
+            this.remainingNumbersID.Size = new System.Drawing.Size(30, 24);
             this.remainingNumbersID.TabIndex = 2;
-            this.remainingNumbersID.Text = "-";
+            this.remainingNumbersID.Text = "30";
+            this.remainingNumbersID.Click += new System.EventHandler(this.remainingNumbersID_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -487,6 +493,8 @@ namespace Lotto
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(569, 186);
             this.tableLayoutPanel2.TabIndex = 6;
+            this.tableLayoutPanel2.UseWaitCursor = true;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // d39
             // 
@@ -497,6 +505,7 @@ namespace Lotto
             this.d39.Size = new System.Drawing.Size(57, 62);
             this.d39.TabIndex = 33;
             this.d39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d39.UseWaitCursor = true;
             // 
             // d38
             // 
@@ -507,6 +516,7 @@ namespace Lotto
             this.d38.Size = new System.Drawing.Size(56, 62);
             this.d38.TabIndex = 32;
             this.d38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d38.UseWaitCursor = true;
             // 
             // d37
             // 
@@ -517,6 +527,7 @@ namespace Lotto
             this.d37.Size = new System.Drawing.Size(56, 62);
             this.d37.TabIndex = 31;
             this.d37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d37.UseWaitCursor = true;
             // 
             // d36
             // 
@@ -527,6 +538,7 @@ namespace Lotto
             this.d36.Size = new System.Drawing.Size(56, 62);
             this.d36.TabIndex = 30;
             this.d36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d36.UseWaitCursor = true;
             // 
             // d35
             // 
@@ -537,6 +549,7 @@ namespace Lotto
             this.d35.Size = new System.Drawing.Size(56, 62);
             this.d35.TabIndex = 29;
             this.d35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d35.UseWaitCursor = true;
             // 
             // d34
             // 
@@ -547,6 +560,7 @@ namespace Lotto
             this.d34.Size = new System.Drawing.Size(56, 62);
             this.d34.TabIndex = 28;
             this.d34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d34.UseWaitCursor = true;
             // 
             // d33
             // 
@@ -557,6 +571,7 @@ namespace Lotto
             this.d33.Size = new System.Drawing.Size(56, 62);
             this.d33.TabIndex = 27;
             this.d33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d33.UseWaitCursor = true;
             // 
             // d32
             // 
@@ -567,6 +582,7 @@ namespace Lotto
             this.d32.Size = new System.Drawing.Size(56, 62);
             this.d32.TabIndex = 26;
             this.d32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d32.UseWaitCursor = true;
             // 
             // d31
             // 
@@ -577,6 +593,7 @@ namespace Lotto
             this.d31.Size = new System.Drawing.Size(56, 62);
             this.d31.TabIndex = 25;
             this.d31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d31.UseWaitCursor = true;
             // 
             // d29
             // 
@@ -587,6 +604,7 @@ namespace Lotto
             this.d29.Size = new System.Drawing.Size(57, 60);
             this.d29.TabIndex = 24;
             this.d29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d29.UseWaitCursor = true;
             // 
             // d28
             // 
@@ -597,6 +615,7 @@ namespace Lotto
             this.d28.Size = new System.Drawing.Size(56, 60);
             this.d28.TabIndex = 23;
             this.d28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d28.UseWaitCursor = true;
             // 
             // d27
             // 
@@ -607,6 +626,7 @@ namespace Lotto
             this.d27.Size = new System.Drawing.Size(56, 60);
             this.d27.TabIndex = 22;
             this.d27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d27.UseWaitCursor = true;
             // 
             // d26
             // 
@@ -617,6 +637,7 @@ namespace Lotto
             this.d26.Size = new System.Drawing.Size(56, 60);
             this.d26.TabIndex = 21;
             this.d26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d26.UseWaitCursor = true;
             // 
             // d25
             // 
@@ -627,6 +648,7 @@ namespace Lotto
             this.d25.Size = new System.Drawing.Size(56, 60);
             this.d25.TabIndex = 20;
             this.d25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d25.UseWaitCursor = true;
             // 
             // d24
             // 
@@ -637,6 +659,7 @@ namespace Lotto
             this.d24.Size = new System.Drawing.Size(56, 60);
             this.d24.TabIndex = 19;
             this.d24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d24.UseWaitCursor = true;
             // 
             // d23
             // 
@@ -647,6 +670,7 @@ namespace Lotto
             this.d23.Size = new System.Drawing.Size(56, 60);
             this.d23.TabIndex = 18;
             this.d23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d23.UseWaitCursor = true;
             // 
             // d22
             // 
@@ -657,6 +681,7 @@ namespace Lotto
             this.d22.Size = new System.Drawing.Size(56, 60);
             this.d22.TabIndex = 17;
             this.d22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d22.UseWaitCursor = true;
             // 
             // d21
             // 
@@ -667,6 +692,7 @@ namespace Lotto
             this.d21.Size = new System.Drawing.Size(56, 60);
             this.d21.TabIndex = 16;
             this.d21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d21.UseWaitCursor = true;
             // 
             // d19
             // 
@@ -677,6 +703,7 @@ namespace Lotto
             this.d19.Size = new System.Drawing.Size(57, 60);
             this.d19.TabIndex = 15;
             this.d19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d19.UseWaitCursor = true;
             // 
             // d18
             // 
@@ -687,6 +714,7 @@ namespace Lotto
             this.d18.Size = new System.Drawing.Size(56, 60);
             this.d18.TabIndex = 14;
             this.d18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d18.UseWaitCursor = true;
             // 
             // d17
             // 
@@ -697,6 +725,7 @@ namespace Lotto
             this.d17.Size = new System.Drawing.Size(56, 60);
             this.d17.TabIndex = 13;
             this.d17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d17.UseWaitCursor = true;
             // 
             // d16
             // 
@@ -707,6 +736,7 @@ namespace Lotto
             this.d16.Size = new System.Drawing.Size(56, 60);
             this.d16.TabIndex = 12;
             this.d16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d16.UseWaitCursor = true;
             // 
             // d15
             // 
@@ -717,6 +747,7 @@ namespace Lotto
             this.d15.Size = new System.Drawing.Size(0, 17);
             this.d15.TabIndex = 11;
             this.d15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d15.UseWaitCursor = true;
             // 
             // d14
             // 
@@ -727,6 +758,7 @@ namespace Lotto
             this.d14.Size = new System.Drawing.Size(56, 60);
             this.d14.TabIndex = 10;
             this.d14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d14.UseWaitCursor = true;
             // 
             // d13
             // 
@@ -737,6 +769,7 @@ namespace Lotto
             this.d13.Size = new System.Drawing.Size(56, 60);
             this.d13.TabIndex = 9;
             this.d13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d13.UseWaitCursor = true;
             // 
             // d12
             // 
@@ -747,6 +780,7 @@ namespace Lotto
             this.d12.Size = new System.Drawing.Size(56, 60);
             this.d12.TabIndex = 8;
             this.d12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d12.UseWaitCursor = true;
             // 
             // d11
             // 
@@ -757,14 +791,16 @@ namespace Lotto
             this.d11.Size = new System.Drawing.Size(56, 60);
             this.d11.TabIndex = 7;
             this.d11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.d11.UseWaitCursor = true;
             // 
             // NextNumberButton
             // 
             this.NextNumberButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NextNumberButton.AutoEllipsis = true;
-            this.NextNumberButton.Location = new System.Drawing.Point(693, 378);
+            this.NextNumberButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NextNumberButton.Location = new System.Drawing.Point(675, 271);
             this.NextNumberButton.Name = "NextNumberButton";
-            this.NextNumberButton.Size = new System.Drawing.Size(158, 39);
+            this.NextNumberButton.Size = new System.Drawing.Size(198, 45);
             this.NextNumberButton.TabIndex = 7;
             this.NextNumberButton.Text = "Следующая бочка";
             this.NextNumberButton.UseVisualStyleBackColor = true;
@@ -774,13 +810,47 @@ namespace Lotto
             // 
             this.buttonEndGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEndGame.AutoEllipsis = true;
-            this.buttonEndGame.Location = new System.Drawing.Point(693, 199);
+            this.buttonEndGame.Location = new System.Drawing.Point(825, 399);
             this.buttonEndGame.Name = "buttonEndGame";
-            this.buttonEndGame.Size = new System.Drawing.Size(158, 39);
+            this.buttonEndGame.Size = new System.Drawing.Size(120, 39);
             this.buttonEndGame.TabIndex = 8;
             this.buttonEndGame.Text = "Закончить игру";
             this.buttonEndGame.UseVisualStyleBackColor = true;
             this.buttonEndGame.Click += new System.EventHandler(this.buttonEndGame_Click);
+            // 
+            // numberFromPoolID
+            // 
+            this.numberFromPoolID.AutoSize = true;
+            this.numberFromPoolID.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.numberFromPoolID.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numberFromPoolID.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.numberFromPoolID.Location = new System.Drawing.Point(713, 156);
+            this.numberFromPoolID.Name = "numberFromPoolID";
+            this.numberFromPoolID.Size = new System.Drawing.Size(112, 39);
+            this.numberFromPoolID.TabIndex = 9;
+            this.numberFromPoolID.Text = "Бочка";
+            this.numberFromPoolID.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // ComputerRemainingNumbersID
+            // 
+            this.ComputerRemainingNumbersID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComputerRemainingNumbersID.AutoSize = true;
+            this.ComputerRemainingNumbersID.Location = new System.Drawing.Point(895, 45);
+            this.ComputerRemainingNumbersID.Name = "ComputerRemainingNumbersID";
+            this.ComputerRemainingNumbersID.Size = new System.Drawing.Size(24, 17);
+            this.ComputerRemainingNumbersID.TabIndex = 11;
+            this.ComputerRemainingNumbersID.Text = "30";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(728, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 17);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Осталось у соперника:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Lotto
             // 
@@ -788,6 +858,9 @@ namespace Lotto
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(957, 450);
+            this.Controls.Add(this.ComputerRemainingNumbersID);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numberFromPoolID);
             this.Controls.Add(this.buttonEndGame);
             this.Controls.Add(this.NextNumberButton);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -869,6 +942,9 @@ namespace Lotto
         private System.Windows.Forms.Label d11;
         private System.Windows.Forms.Button NextNumberButton;
         private System.Windows.Forms.Button buttonEndGame;
+        private System.Windows.Forms.Label numberFromPoolID;
+        private System.Windows.Forms.Label ComputerRemainingNumbersID;
+        private System.Windows.Forms.Label label3;
     }
 }
 
