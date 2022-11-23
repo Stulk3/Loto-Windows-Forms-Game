@@ -9,6 +9,7 @@ namespace Loto
     class PlayerData
     {
         public static PlayerData instance;
+
         private int remainingNumbers = 30;
         
         public PlayerData(): base()

@@ -118,7 +118,6 @@ namespace Loto
             this.remainingNumbersID.Size = new System.Drawing.Size(30, 24);
             this.remainingNumbersID.TabIndex = 2;
             this.remainingNumbersID.Text = "30";
-            this.remainingNumbersID.Click += new System.EventHandler(this.remainingNumbersID_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -494,7 +493,6 @@ namespace Loto
             this.tableLayoutPanel2.Size = new System.Drawing.Size(569, 186);
             this.tableLayoutPanel2.TabIndex = 6;
             this.tableLayoutPanel2.UseWaitCursor = true;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // d39
             // 
@@ -810,9 +808,9 @@ namespace Loto
             // 
             this.buttonEndGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEndGame.AutoEllipsis = true;
-            this.buttonEndGame.Location = new System.Drawing.Point(825, 399);
+            this.buttonEndGame.Location = new System.Drawing.Point(794, 399);
             this.buttonEndGame.Name = "buttonEndGame";
-            this.buttonEndGame.Size = new System.Drawing.Size(120, 39);
+            this.buttonEndGame.Size = new System.Drawing.Size(151, 39);
             this.buttonEndGame.TabIndex = 8;
             this.buttonEndGame.Text = "Закончить игру";
             this.buttonEndGame.UseVisualStyleBackColor = true;
@@ -826,10 +824,9 @@ namespace Loto
             this.numberFromPoolID.ForeColor = System.Drawing.SystemColors.ControlText;
             this.numberFromPoolID.Location = new System.Drawing.Point(713, 156);
             this.numberFromPoolID.Name = "numberFromPoolID";
-            this.numberFromPoolID.Size = new System.Drawing.Size(112, 39);
+            this.numberFromPoolID.Size = new System.Drawing.Size(110, 38);
             this.numberFromPoolID.TabIndex = 9;
             this.numberFromPoolID.Text = "Бочка";
-            this.numberFromPoolID.Click += new System.EventHandler(this.label2_Click);
             // 
             // ComputerRemainingNumbersID
             // 
@@ -850,7 +847,6 @@ namespace Loto
             this.label3.Size = new System.Drawing.Size(160, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Осталось у соперника:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Lotto
             // 

@@ -136,7 +136,7 @@ namespace Loto
             int[] numbersRow3;
             
             /// <summary>
-            ///  Проверка есть ли на карточках номера
+            ///  Проверка есть ли на карточках номер
             /// </summary>
             
             bool isExistInCard1 = cardList1.Contains(number);
@@ -144,6 +144,10 @@ namespace Loto
 
             Console.WriteLine(isExistInCard1);
             Console.WriteLine(isExistInCard2);
+
+            /// <summary>
+            ///  Если номер найден - проверяем карточку и зачеркиваем либо на карточке игрока, либо компьютера
+            /// </summary>
             if (isExistInCard1)
             {
                 numbersRow1 = FillRow(number, card1NumbersArray, 0);
@@ -214,6 +218,9 @@ namespace Loto
                 Application.Exit();
             }
         }
+        /// <summary>
+        ///  Метод, который вызывается при нажатии на кнопку "Следующая бочка"
+        /// </summary>
         private void NextNumberButton_Click(object sender, EventArgs e)
         {
             numberFromPool = lottoMaster.GetNumberFromGamePool();
@@ -242,26 +249,6 @@ namespace Loto
         private void buttonEndGame_Click(object sender, EventArgs e)
         {
             EndGame();
-        }
-
-        private void remainingNumbersID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

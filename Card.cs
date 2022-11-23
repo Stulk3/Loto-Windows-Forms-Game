@@ -21,30 +21,8 @@ namespace Loto
                 {0,1,0,1,1,0,1,1,0}, 
             };
             FillCardWithNumbers();
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    Console.WriteLine("0" + i + " " + numbers[0, i]);
-            //}
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    Console.WriteLine("1" + i + " " + numbers[1, i]);
-            //}
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    Console.WriteLine("2" + i + " " + numbers[2, i]);
-            //}
         }
-        public bool IsCleared()
-        {
-            return isCleared;
-        }
-        public void CheckForCardCleared()
-        {
-            if (remainingNumbers.Count == 0)
-            {
-                isCleared = true;
-            }
-        }
+
         private void FillCardWithNumbers()
         {
             FillRow(0);
@@ -62,6 +40,17 @@ namespace Loto
                     SetNumber(rowNumber, i, number);
                     remainingNumbers.Add(number);
                 }
+            }
+        }
+        public bool IsCleared()
+        {
+            return isCleared;
+        }
+        public void CheckForCardCleared()
+        {
+            if (remainingNumbers.Count == 0)
+            {
+                isCleared = true;
             }
         }
         public List<int> GetRemainingNumbersList()
