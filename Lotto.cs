@@ -14,9 +14,15 @@ namespace Loto
 {
     public partial class Lotto : Form
     {
+        /// <summary>
+        ///  Двумерный массив с Label
+        ///  Здесь хранятся ссылки на элементы, куда выводятся числа с карточки
+        /// </summary>
         private Label[,] card1Labels;
         private Label[,] card2Labels;
-
+        
+        
+        /// Инициализируем экземпляры классов
         private LottoMaster lottoMaster = new LottoMaster();
 
         private PlayerData player = new PlayerData();
@@ -25,8 +31,6 @@ namespace Loto
 
         private Card playerCard1= new Card();
         private Card playerCard2 = new Card();
-
-        public int[,] test = new int[3,9];
 
         private Card computerCard1 = new Card();
         private Card computerCard2 = new Card();
@@ -38,7 +42,11 @@ namespace Loto
         {
             InitializeComponent();
         }
-
+        
+        /// <summary>
+        ///  При загрузке Формы
+        ///  Заполняются массивы с Label
+        /// </summary>
         private void Loto_Load(object sender, EventArgs e)
         {
             card1Labels = new Label[3, 9] {
@@ -126,7 +134,11 @@ namespace Loto
             int[] numbersRow1;
             int[] numbersRow2;
             int[] numbersRow3;
-
+            
+            /// <summary>
+            ///  Проверка есть ли на карточках номера
+            /// </summary>
+            
             bool isExistInCard1 = cardList1.Contains(number);
             bool isExistInCard2 = cardList2.Contains(number);
 
